@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_balance_list.balanceListTotalAmou
 import kotlinx.android.synthetic.main.fragment_balance_list.balanceListTotalTitle
 import kotlinx.android.synthetic.main.fragment_balance_list.walletContainer
 import javax.inject.Inject
+import kotlinx.android.synthetic.main.fragment_balance_list.manageAssets
 
 class BalanceListFragment : BaseFragment<BalanceListViewModel>(), BalanceListAdapter.ItemAssetHandler {
 
@@ -54,6 +55,10 @@ class BalanceListFragment : BaseFragment<BalanceListViewModel>(), BalanceListAda
 
         balanceListAvatar.setOnClickListener {
             viewModel.avatarClicked()
+        }
+
+        manageAssets.setWholeClickListener {
+
         }
     }
 
