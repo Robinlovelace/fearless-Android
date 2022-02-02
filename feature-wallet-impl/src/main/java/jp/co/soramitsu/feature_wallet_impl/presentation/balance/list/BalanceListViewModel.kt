@@ -70,15 +70,15 @@ class BalanceListViewModel(
         return addressIconGenerator.createAddressModel(account.address, sizeInDp, account.name)
     }
 
-    private fun assetListSort() = compareByDescending<AssetModel> { it.total > BigDecimal.ZERO }
-        .thenByDescending { it.totalFiat ?: BigDecimal.ZERO }
-        .thenBy { it.token.configuration.isTestNet }
-        .thenByDescending { it.token.configuration.chainId.isPolkadotOrKusama() }
-        .thenBy { it.token.configuration.chainName }
+//    private fun assetListSort() = compareByDescending<AssetModel> { it.total > BigDecimal.ZERO }
+//        .thenByDescending { it.totalFiat ?: BigDecimal.ZERO }
+//        .thenBy { it.token.configuration.isTestNet }
+//        .thenByDescending { it.token.configuration.chainId.isPolkadotOrKusama() }
+//        .thenBy { it.token.configuration.chainName }
 
     private fun balanceFlow(): Flow<BalanceModel> =
         interactor.assetsFlow()
             .mapList(::mapAssetToAssetModel)
-            .map { it.sortedWith(assetListSort()) }
+//            .map { it.sortedWith(assetListSort()) }
             .map(::BalanceModel)
 }

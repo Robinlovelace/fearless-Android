@@ -49,7 +49,7 @@ class BadgeView @JvmOverloads constructor(context: Context,
         badgeName.text = text
     }
 
-    fun setText(text: String?) {
-        badgeName.text = text
+    fun setText(stringText: String?) {
+        badgeName.text = stringText
     }
 }

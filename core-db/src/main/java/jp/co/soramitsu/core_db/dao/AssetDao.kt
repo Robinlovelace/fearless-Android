@@ -12,15 +12,17 @@ import kotlinx.coroutines.flow.Flow
 private const val RETRIEVE_ASSET_SQL_META_ID = """
            select * from assets as a inner join tokens as t ON a.tokenSymbol = t.symbol WHERE
             a.metaId = :metaId and a.chainId = :chainId AND a.tokenSymbol = :symbol
+            ORDER BY a.sortIndex
 """
 
 private const val RETRIEVE_ASSET_SQL_ACCOUNT_ID = """
            select * from assets as a inner join tokens as t ON a.tokenSymbol = t.symbol WHERE 
             a.accountId = :accountId and a.chainId = :chainId AND a.tokenSymbol = :symbol
+            ORDER BY a.sortIndex
 """
 
 private const val RETRIEVE_ACCOUNT_ASSETS_QUERY = """
-       select * from assets as a inner join tokens as t on a.tokenSymbol = t.symbol WHERE a.metaId = :metaId ORDER BY a.tokenSymbol, a.chainId
+       select * from assets as a inner join tokens as t on a.tokenSymbol = t.symbol WHERE a.metaId = :metaId ORDER BY a.sortIndex
 """
 
 interface AssetReadOnlyCache {

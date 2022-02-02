@@ -139,7 +139,6 @@
         android:id="@+id/manageAssetsCustomNetworkName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/chain_account1"
         android:lines="1"
         android:paddingStart="6dp"
         android:paddingEnd="4dp"

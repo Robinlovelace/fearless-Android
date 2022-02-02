@@ -4,13 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import coil.ImageLoader
+import javax.inject.Inject
 import jp.co.soramitsu.common.base.BaseFragment
 import jp.co.soramitsu.feature_wallet_impl.R
 
-class ManageAssetsFragment : BaseFragment<ManageAssetsViewModel>() {
+class ManageAssetsFragment : BaseFragment<ManageAssetsViewModel>(), ManageAssetsAdapter.Handler {
+
+    @Inject
+    lateinit var imageLoader: ImageLoader
 
     private val adapter by lazy(LazyThreadSafetyMode.NONE) {
-        ChainAccountsAdapter(this, imageLoader)
+        ManageAssetsAdapter(this, imageLoader)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
@@ -26,5 +31,13 @@ class ManageAssetsFragment : BaseFragment<ManageAssetsViewModel>() {
 
     override fun subscribe(viewModel: ManageAssetsViewModel) {
         TODO("Not yet implemented")
+    }
+
+    override fun switch(item: ManageAssetModel) {
+        viewModel.toggleEnabled(item)
+    }
+
+    override fun addAccount(item: ManageAssetModel) {
+        viewModel.addAccount(item)
     }
 }

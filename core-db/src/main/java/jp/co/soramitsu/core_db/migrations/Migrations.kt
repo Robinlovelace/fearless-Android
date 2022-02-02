@@ -1,9 +1,12 @@
 package jp.co.soramitsu.core_db.migrations
 
+import android.annotation.SuppressLint
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import jp.co.soramitsu.common.utils.asBoolean
+import jp.co.soramitsu.common.utils.map
 import jp.co.soramitsu.core_db.model.NodeLocal
+import jp.co.soramitsu.core_db.model.chain.MetaAccountLocal
 import jp.co.soramitsu.core_db.prepopulate.nodes.defaultNodesInsertQuery
 
 // TODO Should we keep it for previous versions of the app?
